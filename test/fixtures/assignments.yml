@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course: 
+  person: 
+  contract_fee: 1
+  position: MyString
+
+two:
+  course: 
+  person: 
+  contract_fee: 1
+  position: MyString

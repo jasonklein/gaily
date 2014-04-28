@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course: 
+  person: 
+  paid_deposit: false
+  pre_work: false
+
+two:
+  course: 
+  person: 
+  paid_deposit: false
+  pre_work: false
