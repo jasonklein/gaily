@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Course.delete_all
-Person.delete_all
+User.delete_all
 Classroom.delete_all
 Booking.delete_all
 Enrollment.delete_all
@@ -18,7 +18,7 @@ courses = Course.create([
   {name: "WDI 6", description: "Blah blah blah.", start_time: "9am", end_time: "5pm" },
   ])
 
-people = Person.create([
+users = User.create([
   {first_name: "First", last_name: "Student", username: "first@student", role: :student},
   {first_name: "Second", last_name: "Student", username: "second@student", role: :student},
   {first_name: "First", last_name: "Instructor", username: "first@instructor", role: :instructor},

@@ -1,7 +1,7 @@
 class Assignment < ActiveRecord::Base
   belongs_to :course
-  belongs_to :person
-  attr_accessible :contract_fee, :position, :person_attributes, :course_id, :person_id
+  belongs_to :user
+  attr_accessible :contract_fee, :position, :user_attributes, :course_id, :user_id
 
-  accepts_nested_attributes_for :person
+  accepts_nested_attributes_for :user
 end
