@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BookingTestApp::Application.load_tasks
+GAilyApp::Application.load_tasks
