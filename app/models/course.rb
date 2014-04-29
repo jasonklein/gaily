@@ -5,10 +5,10 @@ class Course < ActiveRecord::Base
   has_one :classroom, through: :booking
 
   has_many :enrollments
-  has_many :users, through: :enrollments
+  has_many :students, through: :enrollments
 
   has_many :assignments
-  has_many :users, through: :assignments
+  has_many :instructors, through: :assignments
 
   accepts_nested_attributes_for :booking
   accepts_nested_attributes_for :enrollments
