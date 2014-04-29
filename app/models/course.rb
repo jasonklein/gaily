@@ -16,4 +16,6 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :booking
   accepts_nested_attributes_for :enrollments
   accepts_nested_attributes_for :assignments
+
+  
 end
