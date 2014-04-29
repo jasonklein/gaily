@@ -7,6 +7,8 @@ gem 'rails', '3.2.17'
 
 gem 'sqlite3'
 
+gem 'cancan', '1.6.10'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,3 +38,12 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+
+end
