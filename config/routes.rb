@@ -3,6 +3,14 @@ GAilyApp::Application.routes.draw do
   get "/" => "home#index", as: "home"
   root to: "home#index"
 
+  resources :courses do
+    resources :enrollments
+    resources :assignments
+  end
+  resources :classrooms
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
