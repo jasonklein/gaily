@@ -14,6 +14,10 @@ Enrollment.delete_all
 Assignment.delete_all
 
 courses = Course.create([
+  {name: "WDI 1", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
+  {name: "WDI 2", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
+  {name: "WDI 3", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
+  {name: "WDI 4", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
   {name: "WDI 5", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
   {name: "WDI 6", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
   ])
@@ -35,6 +39,19 @@ classrooms = Classroom.create([
   {name: "Room 3 (Day)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
   {name: "Room 3 (Night)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"}
   ])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
