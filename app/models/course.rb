@@ -1,6 +1,9 @@
 class Course < ActiveRecord::Base
   attr_accessible :description, :end_time, :name, :start_time, :enrollments_attributes, :assignments_attributes, :booking_attributes
 
+  validates :description, :name, :end_time, :start_time, presence: true
+  validates :name, uniqueness: true
+
   has_one :booking
   has_one :classroom, through: :booking
 

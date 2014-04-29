@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'cancan', '1.6.10'
 
+gem 'validates_timeliness', '~> 3.0'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

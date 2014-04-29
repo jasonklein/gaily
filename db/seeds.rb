@@ -14,8 +14,8 @@ Enrollment.delete_all
 Assignment.delete_all
 
 courses = Course.create([
-  {name: "WDI 5", description: "Blah blah blah.", start_time: "9am", end_time: "5pm" },
-  {name: "WDI 6", description: "Blah blah blah.", start_time: "9am", end_time: "5pm" },
+  {name: "WDI 5", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
+  {name: "WDI 6", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
   ])
 
 users = User.create([

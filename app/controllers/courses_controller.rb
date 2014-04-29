@@ -9,7 +9,14 @@ class CoursesController < ApplicationController
   end
 
   def create
-    raise
+    
+    @course = Course.new(params[:course])
+
+    if @course.save
+      redirect_to @course, notice: "#{@course.name} has been added."
+    else
+      render action: "new"
+    end
   end
 
   def show

@@ -3,9 +3,11 @@
   <%= content_tag_for :li, @courses do |course| %>
     <%= link_to course.name, course_path(course) %> | 
     <%= course.enrollments.count %> | 
-    Start: <%= course.booking.start_date %> | 
-    End: <%= course.booking.end_date %> | 
-    Classroom: <%= course.booking.classroom.name %>
+    <% if course.booking %>
+      Start: <%= course.booking.start_date %> | 
+      End: <%= course.booking.end_date %> | 
+      Classroom: <%= course.booking.classroom.name %>
+    <% end %>
   <% end %>
 </ul>
 <br />
