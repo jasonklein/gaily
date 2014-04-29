@@ -5,9 +5,11 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @course.build_booking    
   end
 
   def create
+    raise
   end
 
   def show

@@ -1,0 +1,29 @@
+.error_explanation {
+  color: #FF0000;
+}
+
+.form-box {
+  position: relative;
+  width: 800px;
+  height: 400px;
+}
+
+.form-box-left {
+  position: absolute;
+  left: 0px;
+  width: 300px;
+  height: 400px;
+}
+
+.form-box-right {
+  position: absolute;
+  right: 0px;
+  width: 450px;
+  height: 400px;
+}
+
+.form-box-bottom {
+  position: absolute;
+  bottom: 100px;
+  left: 0px;
+}

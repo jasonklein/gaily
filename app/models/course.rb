@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :description, :end_time, :name, :start_time, :enrollments_attributes, :assignments_attributes, :classroom_attributes
+  attr_accessible :description, :end_time, :name, :start_time, :enrollments_attributes, :assignments_attributes, :booking_attributes
 
   has_one :booking
   has_one :classroom, through: :booking

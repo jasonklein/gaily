@@ -1,0 +1,54 @@
+<div class="form-box">
+  <%= form_for @course do |f| %>
+    <% if @course.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved: <%= @ingredient.errors.full_messages.join(", ").downcase %>.</h3>
+      </div>
+    <% end %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+    <div class="form-box-left">
+      <%= f.label :description %><br />
+      <%= f.text_area :description %><br /> 
+    </div>
+    <div class="form-box-right">
+      <br />
+      <%= f.fields_for :booking do |i| %>
+        <%= i.label "Classroom" %><br />
+        <%= i.collection_select(:classroom_id, Classroom.all, :id, :name) %>
+        <br />
+        <br />
+        <%= i.label :start_date %><br />
+        <%= i.date_select :start_date %><br />
+        <br />
+        <%= i.label :end_date %><br />
+        <%= i.date_select :end_date %><br />
+        <br />    
+      <% end %>
+      <table>
+        <tr>
+          Daily
+        </tr>
+        <tr>
+          <td>
+          <%= f.label :start_time %>
+          </td>
+          <td>
+            <%= f.label :end_time %><br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.time_select :start_time %>
+          </td>
+          <td>
+            <%= f.time_select :end_time %><br />
+          </td>
+        </tr>
+      </table>
+      <div class="form-box-bottom" >
+        <%= f.submit "Submit" %>
+      </div>
+    </div>
+  <% end %>
+</div>
