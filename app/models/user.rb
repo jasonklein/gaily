@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
   has_many :assignments, foreign_key: "instructor_id"
   has_many :courses, through: :enrollments
   has_many :courses, through: :assignments
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end
+  
 end
