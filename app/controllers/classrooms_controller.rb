@@ -9,6 +9,12 @@ class ClassroomsController < ApplicationController
   end
 
   def create
+    @classroom = Classroom.new(params[:classroom])
+    if @classroom.save
+      redirect_to @classroom, notice: "#{@classroom.name} has been added."
+    else
+      render 'new'
+    end
   end
 
   def show
