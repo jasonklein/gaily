@@ -2,7 +2,7 @@
   <%= form_for @course do |f| %>
     <% if @course.errors.any? %>
       <div id="error_explanation">
-        <h3><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved: <%= @course.errors.full_messages.join(", ").downcase %>.</h3>
+        <h3><%= @course.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
       </div>
     <% end %>
     <%= f.label :name %><br />
