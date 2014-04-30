@@ -7,7 +7,15 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    raise
+    @enrollment = Enrollment.new(params[:enrollment])
+    @enrollment.course_id = params[:course_id]
+    @course = Course.find(params[:course_id])
+    
+    if @enrollment.save
+      redirect_to @course, notice: "#{@enrollment.student.full_name} has been added."
+    else
+      render 'new'
+    end
   end
 
   def show

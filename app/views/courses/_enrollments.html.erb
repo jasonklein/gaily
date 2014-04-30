@@ -1,22 +1,22 @@
 <ol>
-  <% @course.students.each do |student| %>
+  <% @course.enrollments.each do |enrollment| %>
     <li>
       <ul>
         <li>
-          Student: <%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %>
+          Student: <%= link_to "#{enrollment.student.first_name} #{enrollment.student.last_name}", user_path(enrollment.student) %>
         </li>
         <li>
-          Username: <%= student.username %>
+          Username: <%= enrollment.student.username %>
         </li>
         <li>
-          Paid deposit? <%= student.paid_deposit ? "Yes" : "No" %>
+          Paid deposit? <%= enrollment.paid_deposit ? "Yes" : "No" %>
         </li>
         <li>
-          Completed the pre-work? <%= student.pre_work %>
+          Completed the pre-work? <%= enrollment.pre_work %>
         </li>
         <li>
-          <%= button_to "Edit", edit_course_enrollment_path(@course, @student.enrollment), method: "get" %>
-          <%= button_to "Delete", delete_course_enrollment_path(@course, @student.enrollment) %>
+          <%= button_to "Edit", edit_course_enrollment_path(@course.id, enrollment), method: "get" %>
+          <%= button_to "Delete", delete_course_enrollment_path(@course.id, enrollment) %>
         </li>
       </ul>
     </li>
