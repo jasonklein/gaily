@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140429165441) do
+ActiveRecord::Schema.define(:version => 20140430133917) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "course_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20140429165441) do
     t.integer  "course_id"
     t.integer  "student_id"
     t.boolean  "paid_deposit", :default => false
-    t.boolean  "pre_work",     :default => false
+    t.string   "pre_work",     :default => "No"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end

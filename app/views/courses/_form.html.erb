@@ -1,4 +1,4 @@
-<div class="form-box">
+<div class="box">
   <%= form_for @course do |f| %>
     <% if @course.errors.any? %>
       <div id="error_explanation">
@@ -7,11 +7,11 @@
     <% end %>
     <%= f.label :name %><br />
     <%= f.text_field :name, size: "56" %><br />
-    <div class="form-box-left">
+    <div class="box-left">
       <%= f.label :description %><br />
       <%= f.text_area :description %><br /> 
     </div>
-    <div class="form-box-right">
+    <div class="box-right">
       <br />
       <%= f.fields_for :booking do |i| %>
         <%= i.label "Classroom" %><br />
@@ -46,7 +46,7 @@
           </td>
         </tr>
       </table>
-      <div class="form-box-bottom" >
+      <div class="box-bottom" >
         <%= f.submit "Submit" %>
       </div>
     </div>
