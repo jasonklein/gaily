@@ -25,6 +25,11 @@ class ClassroomsController < ApplicationController
   end
 
   def update
+    if @classroom.update_attributes(params[:classroom])
+      redirect_to @classroom, notice: "#{@classroom.name} has been updated."
+    else
+      render 'edit'
+    end
   end
 
   def destroy

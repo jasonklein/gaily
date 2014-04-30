@@ -7,6 +7,10 @@
     Other aspects: <%= @classroom.other_aspects %>
   </li>
   <li>
+    <br />
+    <%= button_to "Edit", edit_classroom_path(@classroom), method: :get %>
+    <%= button_to "Delete", delete_classroom_path(@classroom) %>
+  </li>
 </ul>
 <h3>Bookings</h3>
 <% if @bookings.empty? %>
