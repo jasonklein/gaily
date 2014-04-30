@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .error_explanation {
   color: #FF0000;
 }
@@ -26,4 +30,8 @@
   position: absolute;
   bottom: 40px;
   left: 0px;
+}
+
+.button_to {
+  display: inline-block;
 }

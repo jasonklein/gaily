@@ -12,6 +12,7 @@ GAilyApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   post "courses/:id/delete" => "courses#destroy", as: "delete_course"
+  post "courses/:course_id/enrollments/:id" => "enrollments#destroy", as: "delete_course_enrollment"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

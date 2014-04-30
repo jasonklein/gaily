@@ -6,8 +6,10 @@
     <% if course.booking %>
       Start: <%= course.booking.start_date %> | 
       End: <%= course.booking.end_date %> | 
-      Classroom: <%= course.booking.classroom.name %>
+      Classroom: <%= course.booking.classroom.name %> | 
     <% end %>
+    <%= button_to "Edit", edit_course_path(course), method: "get" %>
+    <%= button_to "Delete", delete_course_path(course) %>
   <% end %>
 </ul>
 <br />

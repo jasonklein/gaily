@@ -20,12 +20,16 @@
         End Time: <%= @course.end_time %>
       </li>
     </ul>
+    <div class="box-bottom" >
+      <%= button_to "Edit", edit_course_path(@course), method: "get" %>
+      <%= button_to "Delete", delete_course_path(@course) %>
+    </div>
   </div>
   <div class="box-right">
-    <p>Enrollments | <%= @course.enrollments.count %></p>
-    <% if @course.enrollments.any? %>
+    <p>Students | <%= @course.students.count %></p>
+    <% if @course.students.any? %>
       <ol>
-      <% @course.enrollments.each do |student| %>
+      <% @course.students.each do |student| %>
         <li>
           <ul>
             <li>
@@ -40,14 +44,17 @@
             <li>
               Completed the pre-work? <%= student.pre_work %>
             </li>
+            <li>
+              <%= button_to "Edit", edit_course_enrollment_path(@course, @student.enrollment), method: "get" %>
+              <%= button_to "Delete", delete_course_enrollment_path(@course, @student.enrollment) %>
+            </li>
           </ul>
         </li>
       <% end %>
       </ol>
     <% end %>
-  </div>
-  <div class="box-bottom" >
-    <%= button_to "Edit", edit_course_path(@course), method: "get" %>
-    <%= button_to "Delete", delete_course_path(@course) %>
+    <div class="box-bottom" >
+      <%= button_to "Add Student", new_course_enrollment_path(@course), method: "get" %>
+    </div>
   </div>
 </div>
