@@ -39,8 +39,8 @@ class EnrollmentsController < ApplicationController
   end
 
   def destroy
-    Enrollment.delete(params[:id])
-    redirect_to course_path(params[:course_id])
+    Enrollment.destroy(params[:id])
+    redirect_to course_path(params[:course_id]), notice: "Student has been dropped from this course."
   end
 
   def student_already_enrolled?

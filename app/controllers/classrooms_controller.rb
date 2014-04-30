@@ -33,5 +33,7 @@ class ClassroomsController < ApplicationController
   end
 
   def destroy
+    Classroom.destroy(params[:id])
+    redirect_to classrooms_path, notice: "Classroom has been removed."
   end
 end

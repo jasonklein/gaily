@@ -46,8 +46,8 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-    Assignment.delete(params[:id])
-    redirect_to course_path(params[:course_id])
+    Assignment.destroy(params[:id])
+    redirect_to course_path(params[:course_id]), notice: "Instructor has been dropped from this course."
   end
 
   def instructor_already_assigned?
