@@ -16,7 +16,7 @@
           <br /><br />
         </li>
         <li>
-          <%= button_to "Edit", edit_course_enrollment_path(@course.id, enrollment), method: "get" %>
+          <%= button_to "Edit", edit_course_enrollment_path(@course.id, enrollment), method: :get %>
           <%= button_to "Delete", delete_course_enrollment_path(@course.id, enrollment) %>
           <br /><br />
         </li>

@@ -1,0 +1,19 @@
+<div class="box">
+  <%= form_for @classroom do |f| %>
+    <% if @classroom.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= @classroom.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
+      </div>
+    <% end %>
+    
+    <%= f.label :name %><br />
+    <%= f.text_field :name, size: "56", placeholder: "Indicate if for (Day) or (Night) use..." %><br />
+    <div class="box-left">
+      <%= f.label :equipment %><br />
+      <%= f.text_area :equipment, rows: "10" %><br /> 
+      <%= f.label :other_aspects %><br />
+      <%= f.text_area :other_aspects, rows: "10" %><br />
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>

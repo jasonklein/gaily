@@ -14,7 +14,7 @@
       </li>
     </ul>
     <div class="box-bottom" >
-      <%= button_to "Edit", edit_course_path(@course), method: "get" %>
+      <%= button_to "Edit", edit_course_path(@course), method: :get %>
       <%= button_to "Delete", delete_course_path(@course) %>
     </div>
   </div>
@@ -25,7 +25,7 @@
         <%= render 'assignments' %>
       <% end %>
       <div class="box-bottom" >
-        <%= button_to "Add Instructor", new_course_assignment_path(@course), method: "get" %>
+        <%= button_to "Add Instructor", new_course_assignment_path(@course), method: :get %>
       </div>
     </div>
     <div class="students">
@@ -34,7 +34,7 @@
         <%= render 'enrollments' %>
       <% end %>
       <div class="box-bottom" >
-        <%= button_to "Add Student", new_course_enrollment_path(@course), method: "get" %>
+        <%= button_to "Add Student", new_course_enrollment_path(@course), method: :get %>
       </div>
     </div>
   </div>

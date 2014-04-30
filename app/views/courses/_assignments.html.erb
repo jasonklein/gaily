@@ -16,7 +16,7 @@
           <br /><br />
         </li>
         <li>
-          <%= button_to "Edit", edit_course_assignment_path(@course.id, assignment), method: "get" %>
+          <%= button_to "Edit", edit_course_assignment_path(@course.id, assignment), method: :get %>
           <%= button_to "Delete", delete_course_assignment_path(@course.id, assignment) %>
           <br /><br />
         </li>
