@@ -12,7 +12,7 @@ class EnrollmentsController < ApplicationController
 
     if student_already_enrolled?
       flash[:notice] = "Student already enrolled in course."
-      render 'new'
+      redirect_to action: "new"
     else
       @enrollment = Enrollment.new(params[:enrollment])
       @enrollment.course_id = params[:course_id]
@@ -20,7 +20,7 @@ class EnrollmentsController < ApplicationController
       if @enrollment.save
         redirect_to @course, notice: "#{@enrollment.student.full_name} has been added."
       else
-        render 'new'
+        render "new"
       end
     end
   end

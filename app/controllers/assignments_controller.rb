@@ -12,7 +12,7 @@ class AssignmentsController < ApplicationController
 
     if instructor_already_assigned?
       flash[:notice] = "Instructor already assigned to course."
-      render 'new'
+      redirect_to action: 'new'
     else
       @assignment = Assignment.new(params[:assignment])
       @assignment.course_id = params[:course_id]
@@ -20,7 +20,7 @@ class AssignmentsController < ApplicationController
       if @assignment.save
         redirect_to @course, notice: "#{@assignment.instructor.full_name} has been added."
       else
-        render 'new'
+        render "new"
       end
     end
   end

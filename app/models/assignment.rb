@@ -4,4 +4,6 @@ class Assignment < ActiveRecord::Base
   attr_accessible :contract_fee, :position, :instructor_attributes, :course_id, :instructor_id
 
   accepts_nested_attributes_for :instructor
+
+  validates :contract_fee, :position, :course_id, :instructor_id, presence: true
 end
