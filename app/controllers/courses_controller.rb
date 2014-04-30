@@ -59,6 +59,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    Course.destroy(params[:id])
+    redirect_to courses_path
   end
 
   def overlapped_bookings?(new_start_date, new_end_date)
