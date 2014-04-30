@@ -1,0 +1,24 @@
+<ol>
+  <% @course.students.each do |student| %>
+    <li>
+      <ul>
+        <li>
+          Student: <%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %>
+        </li>
+        <li>
+          Username: <%= student.username %>
+        </li>
+        <li>
+          Paid deposit? <%= student.paid_deposit ? "Yes" : "No" %>
+        </li>
+        <li>
+          Completed the pre-work? <%= student.pre_work %>
+        </li>
+        <li>
+          <%= button_to "Edit", edit_course_enrollment_path(@course, @student.enrollment), method: "get" %>
+          <%= button_to "Delete", delete_course_enrollment_path(@course, @student.enrollment) %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ol>

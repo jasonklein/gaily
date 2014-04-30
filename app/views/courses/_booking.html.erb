@@ -1,0 +1,8 @@
+<li> Classroom: <%= link_to @course.booking.classroom.name, classroom_path(@course.booking.classroom) %>
+</li>
+<li>
+  Start Date: <%= @course.booking.start_date %>
+</li>
+<li>
+  End Date: <%= @course.booking.end_date %>
+</li>

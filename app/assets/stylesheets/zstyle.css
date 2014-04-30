@@ -35,3 +35,7 @@
 .button_to {
   display: inline-block;
 }
+
+li {
+  list-style: none;
+}

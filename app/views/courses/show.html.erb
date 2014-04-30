@@ -4,14 +4,7 @@
   <div class="box-left">
     <ul>
       <% if @course.booking %>
-        <li> Classroom: <%= link_to @course.booking.classroom.name, classroom_path(@course.booking.classroom) %>
-        </li>
-        <li>
-          Start Date: <%= @course.booking.start_date %>
-        </li>
-        <li>
-          End Date: <%= @course.booking.end_date %>
-        </li>
+        <%= render 'booking' %>
       <% end %>
       <li>
         Start Time: <%= @course.start_time %>
@@ -28,30 +21,7 @@
   <div class="box-right">
     <p>Students | <%= @course.students.count %></p>
     <% if @course.students.any? %>
-      <ol>
-      <% @course.students.each do |student| %>
-        <li>
-          <ul>
-            <li>
-              Student: <%= link_to "#{student.first_name} #{student.last_name}", user_path(student) %>
-            </li>
-            <li>
-              Username: <%= student.username %>
-            </li>
-            <li>
-              Paid deposit? <%= student.paid_deposit ? "Yes" : "No" %>
-            </li>
-            <li>
-              Completed the pre-work? <%= student.pre_work %>
-            </li>
-            <li>
-              <%= button_to "Edit", edit_course_enrollment_path(@course, @student.enrollment), method: "get" %>
-              <%= button_to "Delete", delete_course_enrollment_path(@course, @student.enrollment) %>
-            </li>
-          </ul>
-        </li>
-      <% end %>
-      </ol>
+      <%= render 'enrollments' %>
     <% end %>
     <div class="box-bottom" >
       <%= button_to "Add Student", new_course_enrollment_path(@course), method: "get" %>
