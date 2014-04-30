@@ -11,8 +11,11 @@ class AssignmentsController < ApplicationController
     @course = Course.find(params[:course_id])
 
     if instructor_already_assigned?
-      flash[:notice] = "Instructor already assigned to course."
+      flash[:notice] = "Instructor already assigned to #{@course.name}."
       redirect_to action: 'new'
+    elsif instructor_position_already_assigned?
+      flash[:notice] = "Position already assigned."
+      redirect_to @course
     else
       @assignment = Assignment.new(params[:assignment])
       @assignment.course_id = params[:course_id]
@@ -31,7 +34,11 @@ class AssignmentsController < ApplicationController
 
   def update
     @course = Course.find(params[:course_id])
-    if @assignment.update_attributes(params[:assignment])
+
+    if instructor_position_already_assigned?
+      flash[:notice] = "Position already assigned."
+      render 'edit'
+    elsif @assignment.update_attributes(params[:assignment])
         redirect_to @course, notice: "#{@assignment.instructor.full_name}'s assignment has been updated."
     else
       render 'edit'
@@ -45,6 +52,13 @@ class AssignmentsController < ApplicationController
 
   def instructor_already_assigned?
     if Assignment.where(course_id: params[:course_id], instructor_id: params[:assignment][:instructor_id]).any?
+      true
+    end
+  end
+
+  def instructor_position_already_assigned?
+    
+    if Assignment.where("course_id = #{params[:course_id]} AND position = '#{params[:assignment][:position]}' AND instructor_id != #{@assignment.instructor_id}").any?
       true
     end
   end
