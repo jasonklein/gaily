@@ -57,7 +57,6 @@ class AssignmentsController < ApplicationController
   end
 
   def instructor_position_already_assigned?
-    
     if Assignment.where("course_id = #{params[:course_id]} AND position = '#{params[:assignment][:position]}' AND instructor_id != #{@assignment.instructor_id}").any?
       true
     end

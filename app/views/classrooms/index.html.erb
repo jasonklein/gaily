@@ -1,2 +1,16 @@
-<h1>Classrooms#index</h1>
-<p>Find me in app/views/classrooms/index.html.erb</p>
+<h2>Classrooms</h2>
+<% @classrooms.each do |classroom| %>
+  <p><%= link_to classroom.name, classroom %></p>
+  <ul>
+    <li>
+      Equipment: <%= classroom.equipment %>
+    </li>
+    <li>
+      Other aspects: <%= classroom.other_aspects %>
+    </li>
+    <li>
+      <%= button_to "Edit", edit_classroom_path(classroom), method: "get" %>
+      <%= button_to "Delete", delete_classroom_path(classroom) %>
+    </li>
+  </ul>
+<% end %>

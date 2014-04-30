@@ -2,6 +2,7 @@ class ClassroomsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @classrooms = Classroom.order(:name)
   end
 
   def new
