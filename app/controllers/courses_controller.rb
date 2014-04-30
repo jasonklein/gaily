@@ -26,7 +26,6 @@ class CoursesController < ApplicationController
       if @course.save
         redirect_to @course, notice: "#{@course.name} has been added."
       else
-        #raise
         render action: "new"
       end
     end
@@ -36,9 +35,27 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course.build_booking
   end
 
   def update
+    validate_dates
+
+    if @invalid_date_error
+      flash[:notice] = @invalid_date_error
+      render action: "edit"
+    elsif overlapped_bookings?(@new_start_date, @new_end_date)
+      flash[:notice] = "Course overlaps with: "
+      overlapped_courses = @overlapped_bookings.map { |booking| view_context.link_to(booking.course.name, course_path(booking.course)) }
+      flash[:notice] << overlapped_courses.to_sentence
+      render action: "edit"
+    else
+      if @course.update_attributes(params[:course])
+        redirect_to @course, notice: "#{@course.name} has been added."
+      else
+        render action: "edit"
+      end
+    end
   end
 
   def destroy
