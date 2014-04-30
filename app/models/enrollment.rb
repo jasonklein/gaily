@@ -5,13 +5,7 @@ class Enrollment < ActiveRecord::Base
 
   accepts_nested_attributes_for :student
 
-  validates :paid_deposit, :pre_work, :student_id, :course_id, presence: true
+  validates :pre_work, :student_id, :course_id, presence: true
 
-  validate :student_enrolled_once_per_course
 
-  def student_enrolled_once_per_course
-    if Enrollment.where(course_id: :course_id, student_id: :student_id).any?
-      errors.add(:student, "cannot be enrolled in this course more than once.")
-    end
-  end
 end

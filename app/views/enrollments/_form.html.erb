@@ -16,3 +16,4 @@
   <%= f.select :pre_work, [["Yes"], ["No"], ["N/A"]] %><br /><br />
   <%= f.submit "Submit" %>
 <% end %>
+<%= button_to "Back", course_path(@course), method: "get" %>
