@@ -1,0 +1,23 @@
+<%= form_for [@course, @enrollment] do |f| %>
+  <% if @enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @enrollment.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
+    </div>
+  <% end %>
+<!-- 
+ t.integer  "course_id"
+    t.integer  "student_id"
+    t.boolean  "paid_deposit", :default => false
+    t.string   "pre_work", -->
+
+  Student
+  <%= f.fields_for :student do |i| %>
+    <%= collection_select(:enrollment, :student_id, User.where(role: :student), :id, :full_name) %>
+  <% end %>
+  <br />
+  <%= f.label :paid_deposit %> 
+  <%= f.select :paid_deposit, [["Yes", true], ["No", false]] %><br />
+  <%= f.label "Completed pre-work?" %> 
+  <%= f.select :pre_work, [["Yes"], ["No"], ["N/A"]] %><br /><br />
+  <%= f.submit "Submit" %>
+<% end %>
