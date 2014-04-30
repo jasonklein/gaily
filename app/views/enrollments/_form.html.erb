@@ -6,8 +6,12 @@
   <% end %>
 
   Student
-  <%= f.fields_for :student do |i| %>
-    <%= collection_select(:enrollment, :student_id, User.where(role: :student), :id, :full_name) %>
+  <% if @enrollment.student_id %>
+    : <%= @enrollment.student.full_name %>
+  <% else %>
+    <%= f.fields_for :student do |i| %>
+      <%= collection_select(:enrollment, :student_id, User.where(role: :student), :id, :full_name) %>
+    <% end %>
   <% end %>
   <br />
   <%= f.label :paid_deposit %> 

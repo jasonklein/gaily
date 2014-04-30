@@ -25,13 +25,17 @@ class EnrollmentsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
+    @course = Course.find(params[:course_id])
   end
 
   def update
+    @course = Course.find(params[:course_id])
+    if @enrollment.update_attributes(params[:enrollment])
+        redirect_to @course, notice: "#{@enrollment.student.full_name}'s enrollment has been updated."
+    else
+      render 'edit'
+    end
   end
 
   def destroy
