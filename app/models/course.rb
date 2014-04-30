@@ -4,13 +4,13 @@ class Course < ActiveRecord::Base
   validates :description, :name, :end_time, :start_time, presence: true
   validates :name, uniqueness: true
 
-  has_one :booking
+  has_one :booking, dependent: :destroy
   has_one :classroom, through: :booking
 
-  has_many :enrollments
+  has_many :enrollments, dependent: :destroy
   has_many :students, through: :enrollments
 
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :instructors, through: :assignments
 
   accepts_nested_attributes_for :booking
