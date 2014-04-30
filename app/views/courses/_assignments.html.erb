@@ -1,0 +1,26 @@
+<ol>
+  <% @course.assignments.each do |assignment| %>
+    <li>
+      <ul>
+        <li>
+          Instructor: <%= link_to "#{assignment.instructor.first_name} #{assignment.instructor.last_name}", user_path(assignment.instructor) %>
+        </li>
+        <li>
+          Username: <%= assignment.instructor.username %>
+        </li>
+        <li>
+          Contract fee: <%= number_to_currency(assignment.contract_fee, unit: "£") %>
+        </li>
+        <li>
+          Position: <%= assignment.position %>
+          <br /><br />
+        </li>
+        <li>
+          <%= button_to "Edit", edit_course_assignment_path(@course.id, assignment), method: "get" %>
+          <%= button_to "Delete", delete_course_assignment_path(@course.id, assignment) %>
+          <br /><br />
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ol>

@@ -1,24 +1,52 @@
 class AssignmentsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-  end
-
   def new
+    @assignment.build_instructor
+    @course = Course.find(params[:course_id])
   end
 
   def create
-  end
 
-  def show
+    @course = Course.find(params[:course_id])
+
+    if instructor_already_assigned?
+      flash[:notice] = "Instructor already assigned to course."
+      render 'new'
+    else
+      @assignment = Assignment.new(params[:assignment])
+      @assignment.course_id = params[:course_id]
+      
+      if @assignment.save
+        redirect_to @course, notice: "#{@assignment.instructor.full_name} has been added."
+      else
+        render 'new'
+      end
+    end
   end
 
   def edit
+    @course = Course.find(params[:course_id])
   end
 
   def update
+    @course = Course.find(params[:course_id])
+    if @assignment.update_attributes(params[:assignment])
+        redirect_to @course, notice: "#{@assignment.instructor.full_name}'s assignment has been updated."
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    Assignment.delete(params[:id])
+    redirect_to course_path(params[:course_id])
   end
+
+  def instructor_already_assigned?
+    if Assignment.where(course_id: params[:course_id], instructor_id: params[:assignment][:instructor_id]).any?
+      true
+    end
+  end
+
 end

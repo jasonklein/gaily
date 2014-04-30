@@ -4,8 +4,8 @@ GAilyApp::Application.routes.draw do
   root to: "home#index"
 
   resources :courses do
-    resources :enrollments
-    resources :assignments
+    resources :enrollments, only: [:new, :create, :edit, :update, :destroy]
+    resources :assignments, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :classrooms
   resources :users
@@ -13,6 +13,7 @@ GAilyApp::Application.routes.draw do
 
   post "courses/:id/delete" => "courses#destroy", as: "delete_course"
   post "courses/:course_id/enrollments/:id" => "enrollments#destroy", as: "delete_course_enrollment"
+  post "courses/:course_id/assignments/:id" => "assignments#destroy", as: "delete_course_assignment"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

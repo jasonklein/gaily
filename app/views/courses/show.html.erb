@@ -19,12 +19,23 @@
     </div>
   </div>
   <div class="box-right">
-    <p>Students | <%= @course.students.count %></p>
-    <% if @course.students.any? %>
-      <%= render 'enrollments' %>
-    <% end %>
-    <div class="box-bottom" >
-      <%= button_to "Add Student", new_course_enrollment_path(@course), method: "get" %>
+    <div class="instructors">
+      <p>Instructors | <%= @course.instructors.count %></p>
+      <% if @course.instructors.any? %>
+        <%= render 'assignments' %>
+      <% end %>
+      <div class="box-bottom" >
+        <%= button_to "Add Instructor", new_course_assignment_path(@course), method: "get" %>
+      </div>
+    </div>
+    <div class="students">
+      <p>Students | <%= @course.students.count %></p>
+      <% if @course.students.any? %>
+        <%= render 'enrollments' %>
+      <% end %>
+      <div class="box-bottom" >
+        <%= button_to "Add Student", new_course_enrollment_path(@course), method: "get" %>
+      </div>
     </div>
   </div>
 </div>
