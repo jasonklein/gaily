@@ -1,2 +1,29 @@
-<h1>Classrooms#show</h1>
-<p>Find me in app/views/classrooms/show.html.erb</p>
+<h2><%= @classroom.name %></h2>
+<ul>
+  <li>
+    Equipment: <%= @classroom.equipment %>
+  </li>
+  <li>
+    Other aspects: <%= @classroom.other_aspects %>
+  </li>
+  <li>
+</ul>
+<h3>Bookings</h3>
+<% if @bookings.empty? %>
+  <p>There are no bookings for this classroom.</p>
+<% else %>
+  <% @bookings.each do |booking| %>
+    <ul>
+      <li> Course: <%= link_to booking.course.name, course_path(booking.course) %>
+      </li>
+      <li>
+        Start Date: <%= booking.start_date %>
+      </li>
+      <li>
+        End Date: <%= booking.end_date %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+<%= button_to "Add a Course", new_course_path %>
+<%= button_to "Back", classrooms_path, method: :get %>

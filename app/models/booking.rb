@@ -9,4 +9,9 @@ class Booking < ActiveRecord::Base
 
   accepts_nested_attributes_for :classroom
 
+  def bookings_this_week
+    d = Date.beginning_of_week
+    Booking.where("start_date in (#{d}...#{d + 6.days}) || end_date in (#{d}...#{d + 6.days})")
+  end
+
 end

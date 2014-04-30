@@ -12,6 +12,7 @@ class ClassroomsController < ApplicationController
   end
 
   def show
+    @bookings = Booking.where(classroom_id: params[:id])
   end
 
   def edit
