@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_secure_password
+
   attr_accessible :first_name, :last_name, :role, :username
 
   has_many :enrollments, foreign_key: "student_id"

@@ -1,0 +1,23 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved: <%= @user.errors.full_messages.join(", ").downcase %>.</h3>
+    </div>
+  <% end %>
+
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name, readonly: true_unless_admin %><br />
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name, readonly: true_unless_admin %><br />
+  <%= f.label :username %><br />
+  <%= f.text_field :username, placeholder: "Enter your email address", readonly: true_if_admin && @user.id %><br />
+  <%= f.label :password %><br />
+  <%= f.password_field :password, readonly: true_if_admin && @user.id %><br />
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, readonly: true_if_admin && @user.id %><br />
+  <% if true_if_admin %>
+    <%= f.label :role %><br />
+    <%= f.select :role, [[:admin],[:instructor],[:student]] %><br />
+  <% end %>
+  <%= f.submit "Submit" %>
+<% end %>
