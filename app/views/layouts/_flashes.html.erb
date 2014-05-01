@@ -1,0 +1,13 @@
+<div class="flash">
+  <h2>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <br />
+    <% if @overlapped_bookings %>
+      Overlapped bookings include: <% @overlapped_bookings.each do |booking| %>
+        <%= link_to booking.course.name, course_path(booking.course) %>
+      <% end %>.
+    <% end %>
+  </h2>
+</div>

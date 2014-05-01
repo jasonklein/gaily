@@ -1,16 +1,15 @@
 <div class="box">
   <%= form_for @course do |f| %>
-    <% if @course.errors.any? %>
-      <div id="error_explanation">
+    <div id="error_explanation">
+      <% if @course.errors.any? %>
         <h3><%= @course.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
-      </div>
-    <% end %>
+      <% end %>
     
     <%= f.label :name %><br />
     <%= f.text_field :name, size: "56" %><br />
     <div class="box-left">
       <%= f.label :description %><br />
-      <%= f.text_area :description %><br /> 
+      <%= f.text_area :description, rows: "10" %><br /> 
     </div>
     <div class="box-right">
       <br />
@@ -40,10 +39,10 @@
         </tr>
         <tr>
           <td>
-            <%= f.number_field :start_time, min: 0, max: 24, step: 1 %>
+            <%= f.text_field :start_time, size: 2 %>
           </td>
           <td>
-            <%= f.number_field :end_time, min: 0, max: 24, step: 1 %><br />
+            <%= f.text_field :end_time, size: 2 %><br />
           </td>
         </tr>
       </table>

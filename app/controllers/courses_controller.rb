@@ -20,9 +20,7 @@ class CoursesController < ApplicationController
       flash[:notice] = @invalid_date_error
       render action: "new"
     elsif overlapped_bookings?(@new_start_date, @new_end_date)
-      flash[:notice] = "Course overlaps with: "
-      overlapped_courses = @overlapped_bookings.map { |booking| view_context.link_to(booking.course.name, course_path(booking.course)) }
-      flash[:notice] << overlapped_courses.to_sentence
+      flash[:notice] = "Course overlaps with other courses."
       render action: "new"
     else
       if @course.save

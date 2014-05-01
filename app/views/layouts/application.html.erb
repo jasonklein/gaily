@@ -8,13 +8,7 @@
 </head>
 <body>
 
-  <div class="flash">
-    <h2>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-    </h2>
-  </div>
+  <%= render 'layouts/flashes' %>
 
   <% if current_user %>
     <li>
