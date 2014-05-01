@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
     validate_dates
 
     if @invalid_date_error
-      flash[:notice] = @invalid_date_error
+      flash.now[:notice] = @invalid_date_error
       render action: "new"
     elsif overlapped_bookings?(@new_start_date, @new_end_date)
       overlap_error = "Course overlaps with #{@overlapped_bookings.length} other courses: "
@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
         booking.course.name }
       overlap_error << overlapped_courses.to_sentence
       overlap_error << "."
-      flash[:notice] = overlap_error
+      flash.now[:notice] = overlap_error
       render action: "new"
     else
       if @course.save
@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
     validate_dates
 
     if @invalid_date_error
-      flash[:notice] = @invalid_date_error
+      flash.now[:notice] = @invalid_date_error
       render action: "edit"
     elsif overlapped_bookings?(@new_start_date, @new_end_date)
       overlap_error = "Course overlaps with: "
@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
         booking.course.name }
       overlap_error << overlapped_courses.to_sentence
       overlap_error << "."
-      flash[:notice] = overlap_error
+      flash.now[:notice] = overlap_error
       render action: "edit"
     else
       if @course.update_attributes(params[:course])
