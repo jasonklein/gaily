@@ -16,6 +16,18 @@
     </h2>
   </div>
 
+  <% if current_user %>
+    <li>
+      <%= link_to current_user.username, user_path(current_user) %> | 
+      <%= link_to "Logout", session_path(0), method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Login", new_session_path, class: active_menu_item(new_session_path) %> | 
+      <%= link_to "Join", new_user_path, class: active_menu_item(new_user_path) %>
+    </li>
+  <% end %>
+
   <%= yield %>
 
 </body>
