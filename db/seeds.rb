@@ -46,14 +46,14 @@ classrooms = Classroom.create([
   ])
 
 bookings = Booking.create([
-  {course_id: 1, classroom_id: 1, start_date: "2014-01-15", end_date: "2014-01-29"},
-  {course_id: 2, classroom_id: 1, start_date: "2014-02-05", end_date: "2014-02-28"},
-  {course_id: 3, classroom_id: 1, start_date: "2014-03-10", end_date: "2014-03-29"},
-  {course_id: 4, classroom_id: 1, start_date: "2014-04-15", end_date: "2014-04-28"},
-  {course_id: 5, classroom_id: 3, start_date: "2014-01-05", end_date: "2014-01-29"},
-  {course_id: 6, classroom_id: 3, start_date: "2014-02-05", end_date: "2014-02-30"},
-  {course_id: 7, classroom_id: 3, start_date: "2014-03-15", end_date: "2014-03-30"},
-  {course_id: 8, classroom_id: 3, start_date: "2014-04-10", end_date: "2014-04-30"}
+  {course_id: 1, classroom_id: 1, start_date: "2014-05-15", end_date: "2014-05-29"},
+  {course_id: 2, classroom_id: 1, start_date: "2014-06-05", end_date: "2014-06-28"},
+  {course_id: 3, classroom_id: 1, start_date: "2014-07-10", end_date: "2014-07-29"},
+  {course_id: 4, classroom_id: 1, start_date: "2014-08-15", end_date: "2014-08-28"},
+  {course_id: 5, classroom_id: 3, start_date: "2014-05-05", end_date: "2014-05-29"},
+  {course_id: 6, classroom_id: 3, start_date: "2014-06-05", end_date: "2014-06-30"},
+  {course_id: 7, classroom_id: 3, start_date: "2014-07-15", end_date: "2014-07-30"},
+  {course_id: 8, classroom_id: 3, start_date: "2014-08-10", end_date: "2014-08-30"}
   ])
 
 enrollments = Enrollment.create([
