@@ -1,2 +1,17 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h2>Users</h2>
+<% if @admins.any? %>
+  <h3>Administrators</h3>
+  <%= render partial: 'user_information', locals: {users: @admins } %>
+<% end %>
+<br />
+<br />
+<% if @instructors.any? %>
+  <h3>Instructors</h3>
+  <%= render partial: 'user_information', locals: {users: @instructors } %>
+<% end %>
+<br />
+<br />
+<% if @students.any? %>
+  <h3>Students</h3>
+  <%= render partial: 'user_information', locals: {users: @students } %>
+<% end %>

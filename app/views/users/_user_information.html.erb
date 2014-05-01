@@ -1,0 +1,41 @@
+<% users.each do | user | %>
+  <ul>
+    <li>Name: <%= user.full_name %></li>
+    <li>Username: <%= user.username %></li>
+    <br />
+    <% if user.assignments.any? %>
+      <li>Assignments</li>
+      <br />
+      <% user.assignments.each do |assignment| %>
+        <ul>
+          <li>
+            Course: <%= link_to assignment.course.name %>
+          </li>
+          <li>
+            Start Date: <%= assignment.course.booking.start_date %>
+          </li>
+          <li>
+            End Date: <%= assignment.course.booking.end_date %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+    <% if user.enrollments.any? %>
+      <li>Enrollments</li>
+      <% user.enrollments.each do |enrollment| %>
+        <ul>
+          <li>
+            Course: <%= link_to enrollment.course.name %>
+          </li>
+          <li>
+            Start Date: <%= enrollment.course.booking.start_date %>
+          </li>
+          <li>
+            End Date: <%= enrollment.course.booking.end_date %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
