@@ -29,11 +29,11 @@ users = User.create([
   {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Topanga", last_name: "Lawrence", username: "topanga@example.com", role: :student},
   {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Liz", last_name: "Lemon", username: "liz@example.com", role: :student},
   {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Ron", last_name: "Swanson", username: "ron@example.com", role: :student},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Heathcliff", last_name: "Huxtable", username: "heathcliff", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Rose", last_name: "Tyler", username: "rose", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Geordie", last_name: "LaForge", username: "geordie", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Francis", last_name: "Urquhart", username: "francis", role: :admin},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Jason", last_name: "Banks", username: "jason", role: :admin}
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Heathcliff", last_name: "Huxtable", username: "heathcliff@generalassemb.ly", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Rose", last_name: "Tyler", username: "rose@generalassemb.ly", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Geordie", last_name: "LaForge", username: "geordie@generalassemb.ly", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Francis", last_name: "Urquhart", username: "francis@generalassemb.ly", role: :admin},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Jason", last_name: "Banks", username: "jason@generalassemb.ly", role: :admin}
   ])
 
 classrooms = Classroom.create([
