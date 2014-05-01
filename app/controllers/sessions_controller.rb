@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to(root_url, notice: "You have successfully logged in.")
+      if user.role? :admin
+        redirect_to(root_url)
+      else
+        redirect_to user
+      end
     else
       flash.now.alert = "Invalid username or password."
       render 'new'
@@ -17,6 +21,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
-    redirect_to(root_url, notice: "You have logged out.")
+    redirect_to(root_url)
   end
 end

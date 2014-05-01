@@ -2,6 +2,54 @@
   box-sizing: border-box;
 }
 
+html { 
+  background: url(gaily_background_stripe.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+header {
+  float: right;
+  max-width: 350px;
+  font-family: 'Francois One', sans-serif;
+  font-size: 50px;
+  color: #000;
+}
+
+.logo img {
+  margin: 0 auto;
+}
+
+nav {
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+.ebthaf {
+  max-width: 960px;
+  margin: 0 auto 0 100px;
+  position: relative;
+  font-family: Georgia;
+}
+
+h1, h2, h3 {
+  font-family: 'Francois One', sans-serif;
+}
+
+h1 {
+  font-size: 120px;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #C1C1C1;
+}
+
 .error_explanation {
   color: #FF0000;
 }
@@ -42,4 +90,15 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.frame {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 15px;
+}
+
+.frame img {
+  border: 1px solid #000;
 }

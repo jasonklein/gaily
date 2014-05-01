@@ -3,40 +3,48 @@
 <head>
   <title>GAilyApp</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag params[:controller] %>
+  <link href='http://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <%= render 'layouts/flashes' %>
-
-  <% if current_user %>
+  <header>
+    <div class="logo">
+      <%= image_tag("gaily_logo.png") %>
+    </div>
+    <nav>
+      <% if current_user %>
+      <li>
+        <%= link_to current_user.full_name, user_path(current_user) %>
+        <br />
+        <%= link_to "Logout", session_path(0), method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Login", new_session_path, class: active_menu_item(new_session_path) %>
+      </li>
+    <% end %>
     <li>
-      <%= link_to current_user.username, user_path(current_user) %> | 
-      <%= link_to "Logout", session_path(0), method: :delete %>
+      <%= link_to "Home", home_path, class: active_menu_item(home_path) %>
     </li>
-  <% else %>
     <li>
-      <%= link_to "Login", new_session_path, class: active_menu_item(new_session_path) %> | 
-      <%= link_to "Join", new_user_path, class: active_menu_item(new_user_path) %>
+      <%= link_to "Courses", courses_path, class: active_menu_item(courses_path) %>
     </li>
-  <% end %>
-  <li>
-    <%= link_to "Home", home_path, class: active_menu_item(home_path) %>
-  </li>
-  <li>
-    <%= link_to "Courses", courses_path, class: active_menu_item(courses_path) %>
-  </li>
-  <li>
-    <%= link_to "Users", users_path, class: active_menu_item(users_path) %>
-  </li>
-  <% if can? :manage, Classroom %>
     <li>
-      <%= link_to "Classrooms", classrooms_path, class: active_menu_item(classrooms_path) %>
+      <%= link_to "Users", users_path, class: active_menu_item(users_path) %>
     </li>
-  <% end %>
-  <%= yield %>
+    <% if can? :manage, Classroom %>
+      <li>
+        <%= link_to "Classrooms", classrooms_path, class: active_menu_item(classrooms_path) %>
+      </li>
+    <% end %>
+    </nav>
+  </header>
+  <div class="ebthaf">
+    <%= render 'layouts/flashes' %>
+    
+    <%= yield %>
+  </div>
   <footer>
   </footer>
 </body>

@@ -14,9 +14,7 @@ load_and_authorize_resource
     @user = User.new(params[:user])
 
     if @user.save
-      @user = User.find_by_username(@user.username)
-      session[:current_user_id] = @user.id
-      redirect_to(user_path(@user), notice: "You have been successfully added and logged in.")
+      redirect_to users_path, notice: "User has been successfully added."
     else
       render :new
     end

@@ -1,48 +1,55 @@
-<h2><%= @user.full_name %></h2>
-<%= get_image(@user) %>
-<ul>
-  <li>Name: <%= @user.full_name %></li>
-  <li>Username: <%= @user.username %></li>
-  <li>
-    <% if can? :update, @user %>
-      <%= button_to "Edit", edit_user_path(@user), method: :get %>
+<div class="frame">
+  <h2><%= @user.full_name %></h2>
+  <%= get_image(@user) %>
+  <ul>
+    <li>Name: <%= @user.full_name %></li>
+    <li>Username: <%= @user.username %></li>
+    <br />
+    <li>
+      <% if can? :update, @user %>
+        <%= button_to "Edit", edit_user_path(@user), method: :get %>
+      <% end %>
+      <% if can? :destroy, @user %>
+        <%= button_to "Delete", delete_user_path(@user) %>
+      <% end %>
+    </li>    
+  </ul>
+  <% if @user.assignments.any? %>
+    <li>Assignments</li>
+    <br />
+    <% @user.assignments.each do |assignment| %>
+      <ul>
+        <li>
+          Course: <%= link_to assignment.course.name, course_path(assignment.course) %>
+        </li>
+        <li>
+          Start Date: <%= assignment.course.booking.start_date %>
+        </li>
+        <li>
+          End Date: <%= assignment.course.booking.end_date %>
+        </li>
+      </ul>
     <% end %>
-    <% if can? :destroy, @user %>
-      <%= button_to "Delete", delete_user_path(@user) %>
+  <% end %>
+  <% if @user.enrollments.any? %>
+    <li>Enrollments</li>
+    <% @user.enrollments.each do |enrollment| %>
+      <ul>
+        <li>
+          Course: <%= link_to enrollment.course.name, course_path(enrollment.course) %>
+        </li>
+        <li>
+          Start Date: <%= enrollment.course.booking.start_date %>
+        </li>
+        <li>
+          End Date: <%= enrollment.course.booking.end_date %>
+        </li>
+      </ul>
     <% end %>
-  </li>    
-</ul>
-<% if @user.assignments.any? %>
-  <li>Assignments</li>
-  <br />
-  <% @user.assignments.each do |assignment| %>
-    <ul>
-      <li>
-        Course: <%= link_to assignment.course.name, course_path(assignment.course) %>
-      </li>
-      <li>
-        Start Date: <%= assignment.course.booking.start_date %>
-      </li>
-      <li>
-        End Date: <%= assignment.course.booking.end_date %>
-      </li>
-    </ul>
   <% end %>
-<% end %>
-<% if @user.enrollments.any? %>
-  <li>Enrollments</li>
-  <% @user.enrollments.each do |enrollment| %>
-    <ul>
-      <li>
-        Course: <%= link_to enrollment.course.name, course_path(enrollment.course) %>
-      </li>
-      <li>
-        Start Date: <%= enrollment.course.booking.start_date %>
-      </li>
-      <li>
-        End Date: <%= enrollment.course.booking.end_date %>
-      </li>
-    </ul>
-  <% end %>
-<% end %>
-<%= button_to "Users", users_path, method: :get %>
+  <ul>
+    <li>
+      <%= button_to "Users", users_path, method: :get %>
+    </li>
+  </ul>
+</div>
