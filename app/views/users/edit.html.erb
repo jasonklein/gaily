@@ -1,5 +1,7 @@
-<h2>Edit</h2>
-<h3><%= @user.full_name %>'s Credentials</h3>
+<div class="frame small">
+  <h2>Edit</h2>
+  <h3><%= current_user.id == @user.id ? "Your" : "#{@user.full_name}'s" %> Credentials</h3>
+</div>
 
 
 <%= render 'form' %>

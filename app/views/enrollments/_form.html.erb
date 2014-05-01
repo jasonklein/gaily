@@ -1,3 +1,4 @@
+<div class="frame small">
 <%= form_for [@course, @enrollment] do |f| %>
   <% if @enrollment.errors.any? %>
     <div id="error_explanation">
@@ -20,5 +21,8 @@
   <%= f.select :pre_work, [["Yes"], ["No"], ["N/A"]] %><br /><br />
   <%= f.submit "Submit" %>
 <% end %>
-<%= button_to "Back", course_path(@course), method: :get %>
+</div>
+<div class="frame button">
+  <%= button_to "Cancel", course_path(@course), method: :get %>
+</div>
 

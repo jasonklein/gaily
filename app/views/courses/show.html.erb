@@ -4,7 +4,7 @@
   </h2>
   <p>Description: <%= @course.description %></p>
 </div>
-<div class="frame booking">
+<div class="frame medium">
   <ul>
     <% if @course.booking %>
       <%= render 'booking' %>
@@ -15,15 +15,14 @@
     <li>
       End Time: <%= @course.end_time %>
     </li>
-  </ul>
-  <% if can? :manage, Course %>
-    <div class="box-bottom" >
-      <%= button_to "Edit", edit_course_path(@course), method: :get %>
-      <%= button_to "Delete", delete_course_path(@course) %>
-    </div>
-  <% end %>
-  <br />
-  <ul>
+    <% if can? :manage, Course %>
+      <br />
+      <li>
+        <%= button_to "Edit", edit_course_path(@course), method: :get %>
+        <%= button_to "Delete", delete_course_path(@course) %>
+      </li>
+    <% end %>
+    <br />
     <li>
       <%= button_to "Courses", courses_path, method: :get %>
     </li>

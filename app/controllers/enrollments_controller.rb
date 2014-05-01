@@ -11,8 +11,7 @@ class EnrollmentsController < ApplicationController
     @course = Course.find(params[:course_id])
 
     if student_already_enrolled?
-      flash[:notice] = "Student already enrolled in #{@course.name}."
-      redirect_to action: "new"
+      redirect_to @course, notice: "Student already enrolled in #{@course.name}."
     else
       @enrollment = Enrollment.new(params[:enrollment])
       @enrollment.course_id = params[:course_id]
