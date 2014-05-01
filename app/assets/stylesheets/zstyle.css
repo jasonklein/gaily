@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+html { 
+  background: url(memeBASE-home-view.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .error_explanation {
   color: #FF0000;
 }

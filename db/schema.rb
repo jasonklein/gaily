@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140501090404) do
+ActiveRecord::Schema.define(:version => 20140501130210) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "course_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20140501090404) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
+    t.string   "image"
   end
 
   add_index "users", ["username"], :name => "index_people_on_username", :unique => true

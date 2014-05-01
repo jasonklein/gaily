@@ -15,6 +15,10 @@
   <%= f.password_field :password, readonly: true_if_admin && @user.id %><br />
   <%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation, readonly: true_if_admin && @user.id %><br />
+  <% if current_user.id == @user.id %>
+    <%= f.label "Profile Image" %>
+    <%= f.file_field :image %><br />
+  <% end %>
   <% if true_if_admin %>
     <%= f.label :role %><br />
     <%= f.select :role, [["Administrator", :admin],["Instructor", :instructor],["Student", :student]] %><br />

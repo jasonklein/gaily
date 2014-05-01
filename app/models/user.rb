@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  attr_accessible :first_name, :last_name, :role, :username, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :role, :username, :password, :password_confirmation, :image
+
+  mount_uploader :image, ImageUploader
 
   has_many :enrollments, foreign_key: "student_id"
   has_many :assignments, foreign_key: "instructor_id"
