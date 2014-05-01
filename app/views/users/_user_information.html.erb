@@ -3,8 +3,12 @@
     <li>Name: <%= link_to user.full_name, user_path(user) %></li>
     <li>Username: <%= user.username %></li>
     <li>
-      <%= button_to "Edit", edit_user_path(user), method: :get %>
-      <%= button_to "Delete", delete_user_path(user) %>
+      <% if can? :update, user %>
+        <%= button_to "Edit", edit_user_path(user), method: :get %>
+      <% end %>
+      <% if can? :destroy, user %>
+        <%= button_to "Delete", delete_user_path(user) %>
+      <% end %>
     </li>    
   </ul>
 <% end %>

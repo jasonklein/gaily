@@ -3,8 +3,12 @@
   <li>Name: <%= @user.full_name %></li>
   <li>Username: <%= @user.username %></li>
   <li>
-    <%= button_to "Edit", edit_user_path(@user), method: :get %>
-    <%= button_to "Delete", delete_user_path(@user) %>
+    <% if can? :update, @user %>
+      <%= button_to "Edit", edit_user_path(@user), method: :get %>
+    <% end %>
+    <% if can? :destroy, @user %>
+      <%= button_to "Delete", delete_user_path(@user) %>
+    <% end %>
   </li>    
 </ul>
 <% if @user.assignments.any? %>

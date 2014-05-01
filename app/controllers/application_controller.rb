@@ -2,13 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
 
-
-
-
-
-
-
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, notice: "You are not authorized to view this page."
   end
@@ -20,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-
   private
   def current_user
     begin
@@ -30,7 +22,5 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
-
-
 
 end

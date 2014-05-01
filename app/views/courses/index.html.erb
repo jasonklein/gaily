@@ -1,4 +1,9 @@
 <h2>Courses</h2>
+  <%= search_form_for @q do |f| %>
+    <%= f.label "Search" %>
+    <%= f.text_field :name_cont, placeholder: " enter course name" %>
+    <%= f.submit %><br /><br />
+  <% end %>
 <ul>
   <%= content_tag_for :li, @courses do |course| %>
     <%= link_to course.name, course_path(course) %> | 
@@ -8,8 +13,10 @@
       End: <%= course.booking.end_date %> | 
       Classroom: <%= course.booking.classroom.name %> | 
     <% end %>
-    <%= button_to "Edit", edit_course_path(course), method: :get %>
-    <%= button_to "Delete", delete_course_path(course) %>
+    <% if can? :manage, Course %>
+      <%= button_to "Edit", edit_course_path(course), method: :get %>
+      <%= button_to "Delete", delete_course_path(course) %>
+    <% end %>
   <% end %>
 </ul>
 <br />

@@ -2,7 +2,8 @@ class ClassroomsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @classrooms = Classroom.order(:name)
+    @q = Classroom.search(params[:q])
+    @classrooms = @q.result(distinct: true).order(:name)
   end
 
   def new

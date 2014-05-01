@@ -2,7 +2,8 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @courses = Course.order(:name)
+    @q = Course.search(params[:q])
+    @courses = @q.result(distinct: true)
   end
 
   def new
