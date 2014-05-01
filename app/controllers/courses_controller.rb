@@ -20,7 +20,12 @@ class CoursesController < ApplicationController
       flash[:notice] = @invalid_date_error
       render action: "new"
     elsif overlapped_bookings?(@new_start_date, @new_end_date)
-      flash[:notice] = "Course overlaps with other courses."
+      overlap_error = "Course overlaps with #{@overlapped_bookings.length} other courses: "
+      overlapped_courses = @overlapped_bookings.map { |booking|
+        booking.course.name }
+      overlap_error << overlapped_courses.to_sentence
+      overlap_error << "."
+      flash[:notice] = overlap_error
       render action: "new"
     else
       if @course.save
@@ -45,9 +50,12 @@ class CoursesController < ApplicationController
       flash[:notice] = @invalid_date_error
       render action: "edit"
     elsif overlapped_bookings?(@new_start_date, @new_end_date)
-      flash[:notice] = "Course overlaps with: "
-      overlapped_courses = @overlapped_bookings.map { |booking| view_context.link_to(booking.course.name, course_path(booking.course)) }
-      flash[:notice] << overlapped_courses.to_sentence
+      overlap_error = "Course overlaps with: "
+      overlapped_courses = @overlapped_bookings.map { |booking|
+        booking.course.name }
+      overlap_error << overlapped_courses.to_sentence
+      overlap_error << "."
+      flash[:notice] = overlap_error
       render action: "edit"
     else
       if @course.update_attributes(params[:course])
@@ -64,7 +72,7 @@ class CoursesController < ApplicationController
   end
 
   def overlapped_bookings?(new_start_date, new_end_date)
-    @overlapped_bookings = Booking.where("start_date between '#{new_start_date}' and '#{new_end_date}' or end_date between '#{new_start_date}' and '#{new_end_date}'")
+    @overlapped_bookings = Booking.where("classroom_id = #{params[:course][:booking_attributes][:classroom_id]} and (start_date between '#{new_start_date}' and '#{new_end_date}' or end_date between '#{new_start_date}' and '#{new_end_date}')")
 
     if @overlapped_bookings && @overlapped_bookings.any?
       true

@@ -4,10 +4,5 @@
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <br />
-    <% if @overlapped_bookings %>
-      Overlapped bookings include: <% @overlapped_bookings.each do |booking| %>
-        <%= link_to booking.course.name, course_path(booking.course) %>
-      <% end %>.
-    <% end %>
   </h3>
 </div>

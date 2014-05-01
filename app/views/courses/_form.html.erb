@@ -1,5 +1,5 @@
 <%= form_for @course do |f| %>
-  <div id="error_explanation">
+  <div class="error_explanation">
     <% if @course.errors.any? %>
       <h3><%= @course.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
     <% end %>
