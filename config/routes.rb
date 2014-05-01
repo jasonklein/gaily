@@ -12,6 +12,7 @@ GAilyApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   post "courses/:id/delete" => "courses#destroy", as: "delete_course"
+  post "users/:id/delete" => "users#destroy", as: "delete_user"
   post "classrooms/:id/delete" => "classrooms#destroy", as: "delete_classroom"
   post "courses/:course_id/enrollments/:id" => "enrollments#destroy", as: "delete_course_enrollment"
   post "courses/:course_id/assignments/:id" => "assignments#destroy", as: "delete_course_assignment"

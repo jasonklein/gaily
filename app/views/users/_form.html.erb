@@ -1,7 +1,7 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved: <%= @user.errors.full_messages.join(", ").downcase %>.</h3>
+      <h3><%= @user.errors.full_messages.join(", ").downcase.capitalize %>.</h3>
     </div>
   <% end %>
 
@@ -17,7 +17,10 @@
   <%= f.password_field :password_confirmation, readonly: true_if_admin && @user.id %><br />
   <% if true_if_admin %>
     <%= f.label :role %><br />
-    <%= f.select :role, [[:admin],[:instructor],[:student]] %><br />
+    <%= f.select :role, [["Administrator", :admin],["Instructor", :instructor],["Student", :student]] %><br />
   <% end %>
+  <br />
   <%= f.submit "Submit" %>
 <% end %>
+<%= button_to "Users", users_path, method: :get %>
+

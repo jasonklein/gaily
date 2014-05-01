@@ -11,13 +11,12 @@ load_and_authorize_resource
   end
 
   def create
-    params[:user][:role] = :member
     @user = User.new(params[:user])
 
     if @user.save
       @user = User.find_by_username(@user.username)
       session[:current_user_id] = @user.id
-      redirect_to(user_path(@user), notice: "You have been successfully added and logged into disastronomia.")
+      redirect_to(user_path(@user), notice: "You have been successfully added and logged in.")
     else
       render :new
     end

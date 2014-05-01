@@ -1,4 +1,12 @@
 <h2><%= @user.full_name %></h2>
+<ul>
+  <li>Name: <%= @user.full_name %></li>
+  <li>Username: <%= @user.username %></li>
+  <li>
+    <%= button_to "Edit", edit_user_path(@user), method: :get %>
+    <%= button_to "Delete", delete_user_path(@user) %>
+  </li>    
+</ul>
 <% if @user.assignments.any? %>
   <li>Assignments</li>
   <br />
