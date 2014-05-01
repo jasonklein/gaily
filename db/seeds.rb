@@ -14,21 +14,26 @@ Enrollment.delete_all
 Assignment.delete_all
 
 courses = Course.create([
-  {name: "WDI 1", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
-  {name: "WDI 2", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
-  {name: "WDI 3", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
-  {name: "WDI 4", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
-  {name: "WDI 5", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
-  {name: "WDI 6", description: "Blah blah blah.", start_time: "9AM", end_time: "5PM" },
+  {name: "Front End Development Immersive 1", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
+  {name: "Front End Development Immersive 2", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
+  {name: "Front End Development Immersive 3", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
+  {name: "Front End Development Immersive 4", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
+  {name: "Web Development Immersive 1", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
+  {name: "Web Development Immersive 2", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
+  {name: "Web Development Immersive 3", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
+  {name: "User Experience Design Immersive 1", description: "The User Experience Design Immersive aims to get students to think like designers, and equip them with the skills and tools necessary to implement their visions.", start_time: "9AM", end_time: "5PM" },
   ])
 
 users = User.create([
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Student", username: "first@student", role: :student},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Second", last_name: "Student", username: "second@student", role: :student},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Instructor", username: "first@instructor", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Second", last_name: "Instructor", username: "second@instructor", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Third", last_name: "Instructor", username: "third@instructor", role: :instructor},
-  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Administrator", username: "first@admin", role: :admin}
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Wacko", last_name: "Warner", username: "wacko@example.com", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Topanga", last_name: "Lawrence", username: "topanga@example.com", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Liz", last_name: "Lemon", username: "liz@example.com", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Ron", last_name: "Swanson", username: "ron@example.com", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Heathcliff", last_name: "Huxtable", username: "heathcliff", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Rose", last_name: "Tyler", username: "rose", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Geordie", last_name: "LaForge", username: "geordie", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Francis", last_name: "Urquhart", username: "francis", role: :admin},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Jason", last_name: "Banks", username: "jason", role: :admin}
   ])
 
 classrooms = Classroom.create([
@@ -40,6 +45,33 @@ classrooms = Classroom.create([
   {name: "Room 3 (Night)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"}
   ])
 
+bookings = Booking.create([
+  {course_id: 1, classroom_id: 1, start_date: "2014-01-15", end_date: "2014-01-29"},
+  {course_id: 2, classroom_id: 1, start_date: "2014-02-05", end_date: "2014-02-28"},
+  {course_id: 3, classroom_id: 1, start_date: "2014-03-10", end_date: "2014-03-29"},
+  {course_id: 4, classroom_id: 1, start_date: "2014-04-15", end_date: "2014-04-28"},
+  {course_id: 5, classroom_id: 3, start_date: "2014-01-05", end_date: "2014-01-29"},
+  {course_id: 6, classroom_id: 3, start_date: "2014-02-05", end_date: "2014-02-30"},
+  {course_id: 7, classroom_id: 3, start_date: "2014-03-15", end_date: "2014-03-30"},
+  {course_id: 8, classroom_id: 3, start_date: "2014-04-10", end_date: "2014-04-30"}
+  ])
+
+enrollments = Enrollment.create([
+  {course_id: 1, student_id: 1, paid_deposit: true, pre_work: "Yes"},
+  {course_id: 1, student_id: 2, paid_deposit: false, pre_work: "Yes"},
+  {course_id: 7, student_id: 3, paid_deposit: true, pre_work: "No"},
+  {course_id: 7, student_id: 4, paid_deposit: false, pre_work: "Yes"},
+  {course_id: 8, student_id: 3, paid_deposit: true, pre_work: "N/A"}
+  ])
+
+assignments = Assignment.create([
+  {course_id: 1, instructor_id: 5, contract_fee: 10000, position: :primary},
+  {course_id: 1, instructor_id: 6, contract_fee: 7500, position: :secondary},
+  {course_id: 7, instructor_id: 5, contract_fee: 10000, position: :primary},
+  {course_id: 7, instructor_id: 6, contract_fee: 7500, position: :secondary},
+  {course_id: 7, instructor_id: 7, contract_fee: 6000, position: :assistant},
+  {course_id: 8, instructor_id: 6, contract_fee: 10000, position: :primary},
+  ])
 
 
 

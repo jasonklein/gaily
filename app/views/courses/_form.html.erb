@@ -40,10 +40,10 @@
         </tr>
         <tr>
           <td>
-            <%= f.text_field :start_time, size: "15" %>
+            <%= f.number_field :start_time, min: 0, max: 24, step: 1 %>
           </td>
           <td>
-            <%= f.text_field :end_time, size: "15" %><br />
+            <%= f.number_field :end_time, min: 0, max: 24, step: 1 %><br />
           </td>
         </tr>
       </table>
