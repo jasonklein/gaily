@@ -23,12 +23,12 @@ courses = Course.create([
   ])
 
 users = User.create([
-  {first_name: "First", last_name: "Student", username: "first@student", role: :student},
-  {first_name: "Second", last_name: "Student", username: "second@student", role: :student},
-  {first_name: "First", last_name: "Instructor", username: "first@instructor", role: :instructor},
-  {first_name: "Second", last_name: "Instructor", username: "second@instructor", role: :instructor},
-  {first_name: "Third", last_name: "Instructor", username: "third@instructor", role: :instructor},
-  {first_name: "First", last_name: "Administrator", username: "first@admin", role: :admin}
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Student", username: "first@student", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Second", last_name: "Student", username: "second@student", role: :student},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Instructor", username: "first@instructor", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Second", last_name: "Instructor", username: "second@instructor", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "Third", last_name: "Instructor", username: "third@instructor", role: :instructor},
+  {password: "jimmies!sprinkles!", password_confirmation: "jimmies!sprinkles!", first_name: "First", last_name: "Administrator", username: "first@admin", role: :admin}
   ])
 
 classrooms = Classroom.create([
