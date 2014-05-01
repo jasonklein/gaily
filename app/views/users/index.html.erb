@@ -1,18 +1,29 @@
-<h2>Users</h2>
-<% if @admins.any? %>
-  <h3>Administrators</h3>
-  <%= render partial: 'user_information', locals: {users: @admins } %>
-<% end %>
-<br />
-<br />
-<% if @instructors.any? %>
-  <h3>Instructors</h3>
-  <%= render partial: 'user_information', locals: {users: @instructors } %>
-<% end %>
-<br />
-<br />
-<% if @students.any? %>
-  <h3>Students</h3>
-  <%= render partial: 'user_information', locals: {users: @students } %>
-<% end %>
-<%= button_to "Add User", new_user_path, method: :get %>
+<div class="frame small">
+  <h2>Users</h2>
+</div>
+<div class="frame medium">
+  <% if @admins.any? %>
+    <h3>Administrators</h3>
+    <%= render partial: 'user_information', locals: {users: @admins } %>
+  <% end %>
+</div>
+<div class="frame medium">
+  <% if @instructors.any? %>
+    <h3>Instructors</h3>
+    <%= render partial: 'user_information', locals: {users: @instructors } %>
+  <% end %>
+</div>
+<div class="frame medium">
+  <% if @students.any? %>
+    <h3>Students</h3>
+    <%= render partial: 'user_information', locals: {users: @students } %>
+  <% end %>
+</div>
+<div class="frame list-button">
+  <ul>
+    <li>
+      <%= button_to "Add User", new_user_path, method: :get %>
+    </li>
+  </ul>
+</div>
+

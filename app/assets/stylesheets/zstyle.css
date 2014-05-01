@@ -27,62 +27,61 @@ nav {
   margin-top: 20px;
 }
 
-.ebthaf {
-  max-width: 960px;
-  margin: 0 auto 0 100px;
-  position: relative;
-  font-family: Georgia;
+.full_name {
+  border-bottom: 2px solid #FF0000;
+  margin: 0;
 }
 
-h1, h2, h3 {
+.ebthaf {
+  max-width: 960px;
+  margin: 0 auto 100px 100px;
+  position: relative;
+  font-family: Georgia;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
   font-family: 'Francois One', sans-serif;
+  margin: 0;
 }
 
 h1 {
-  font-size: 120px;
+  font-size: 100px;
 }
 
-a:visited {
+h2 {
+  font-size: 70px;
+}
+
+h3 {
+  font-size: 50px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+p {
+  margin: 0 auto 5px auto;
+}
+
+a {
   color: #000;
 }
+
 
 a:hover {
   color: #C1C1C1;
 }
 
-.error_explanation {
+.error_explanation, .active_menu_item, .flash {
   color: #FF0000;
-}
-
-.box {
-  position: relative;
-  width: 800px;
-  height: 400px;
-}
-
-.box-left {
-  position: absolute;
-  left: 0px;
-  width: 300px;
-  height: 400px;
-}
-
-.box-right {
-  position: absolute;
-  right: 0px;
-  width: 450px;
-  height: 400px;
-}
-
-.box-bottom {
-  position: absolute;
-  bottom: 40px;
-  left: 0px;
 }
 
 .button_to {
   display: inline-block;
 }
+
 
 li {
   list-style: none;
@@ -93,12 +92,61 @@ a {
 }
 
 .frame {
-  width: 400px;
   background-color: #fff;
   border: 1px solid #000;
-  padding: 15px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .frame img {
   border: 1px solid #000;
+}
+.frame.booking {
+  width: 300px;
+  display: block;
+}
+
+.frame.small {
+  width: 400px;
+}
+
+.frame.medium {
+  width: 700px;
+}
+
+.frame.large {
+  width: 800px;
+}
+
+.frame.list-button {
+  width: 190px;
+}
+
+.frame.button {
+  width: 100px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.instructor {
+  clear: both;
+}
+
+.classroom {
+  display: inline-block;
+}
+
+input[type="submit"] {
+  border-radius: 5px;
+  background-color: #FFF6B1;
+}
+
+.information {
+  display: inline-block;
 }

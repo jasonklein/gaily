@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       if user.role? :admin
-        redirect_to(root_url)
+        redirect_to courses_path
       else
         redirect_to user
       end

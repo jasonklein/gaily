@@ -9,15 +9,19 @@
           Username: <%= assignment.instructor.username %>
         </li>
         <li>
-          Contract fee: <%= number_to_currency(assignment.contract_fee, unit: "£") %>
+          <% if can? :manage, Enrollment %>
+            Contract fee: <%= number_to_currency(assignment.contract_fee, unit: "£") %>
+          <% end %>
         </li>
         <li>
           Position: <%= assignment.position %>
           <br /><br />
         </li>
         <li>
-          <%= button_to "Edit", edit_course_assignment_path(@course.id, assignment), method: :get %>
-          <%= button_to "Delete", delete_course_assignment_path(@course.id, assignment) %>
+          <% if can? :manage, Assignment %>
+            <%= button_to "Edit", edit_course_assignment_path(@course.id, assignment), method: :get %>
+            <%= button_to "Delete", delete_course_assignment_path(@course.id, assignment) %>
+          <% end %>
           <br /><br />
         </li>
       </ul>

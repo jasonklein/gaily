@@ -1,4 +1,4 @@
-<div class="box">
+<div class="frame small">
   <%= form_for @classroom do |f| %>
     <% if @classroom.errors.any? %>
       <div id="error_explanation">
@@ -7,14 +7,14 @@
     <% end %>
     
     <%= f.label :name %><br />
-    <%= f.text_field :name, size: "56", placeholder: "Indicate if for (Day) or (Night) use..." %><br />
-    <div class="box-left">
-      <%= f.label :equipment %><br />
-      <%= f.text_area :equipment, rows: "10" %><br /> 
-      <%= f.label :other_aspects %><br />
-      <%= f.text_area :other_aspects, rows: "10" %><br />
-      <%= f.submit "Submit" %>
-    </div>
+    <%= f.text_field :name, size: "38", placeholder: "Indicate if for (Day) or (Night) use..." %><br />
+    <%= f.label :equipment %><br />
+    <%= f.text_area :equipment, rows: "10" %><br /> 
+    <%= f.label :other_aspects %><br />
+    <%= f.text_area :other_aspects, rows: "10" %><br />
+    <%= f.submit "Submit" %>
   <% end %>
-  <%= button_to "Back", classrooms_path, method: :get %>
+</div>
+<div class="frame button">
+  <%= button_to "Cancel", classrooms_path, method: :get %>
 </div>

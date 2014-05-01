@@ -1,4 +1,4 @@
-<div class="frame">
+<div class="frame small">
   <h2><%= @user.full_name %></h2>
   <%= get_image(@user) %>
   <ul>
@@ -15,7 +15,9 @@
     </li>    
   </ul>
   <% if @user.assignments.any? %>
-    <li>Assignments</li>
+    <h4>
+      <li>Assignments</li>
+    </h4>
     <br />
     <% @user.assignments.each do |assignment| %>
       <ul>
@@ -32,7 +34,9 @@
     <% end %>
   <% end %>
   <% if @user.enrollments.any? %>
-    <li>Enrollments</li>
+    <h4>
+      <li>Enrollments</li>
+    </h4>
     <% @user.enrollments.each do |enrollment| %>
       <ul>
         <li>

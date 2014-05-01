@@ -1,16 +1,19 @@
 <% users.each do | user | %>
-  <ul>
-    <li><%= get_image_thumb(user) %></li>
-    <li>Name: <%= link_to user.full_name, user_path(user) %></li>
-    <li>Username: <%= user.username %></li>
-    <li>
-      <% if can? :update, user %>
-        <%= button_to "Edit", edit_user_path(user), method: :get %>
-      <% end %>
-      <% if can? :destroy, user %>
-        <%= button_to "Delete", delete_user_path(user) %>
-      <% end %>
-    </li>    
-  </ul>
+  <div class="information">
+    <ul>
+      <li><%= get_image_thumb(user) %></li>
+      <li>Name: <%= link_to user.full_name, user_path(user) %></li>
+      <li>Username: <%= user.username %></li>
+      <br />
+      <li>
+        <% if can? :update, user %>
+          <%= button_to "Edit", edit_user_path(user), method: :get %>
+        <% end %>
+        <% if can? :destroy, user %>
+          <%= button_to "Delete", delete_user_path(user) %>
+        <% end %>
+      </li>    
+    </ul>
+  </div>
 <% end %>
 

@@ -1,23 +1,31 @@
-<h2>Classrooms</h2>
-<%= search_form_for @q do |f| %>
-  <%= f.label "Search" %>
-  <%= f.text_field :name_cont, placeholder: " enter classroom name" %>
-  <%= f.submit %><br /><br />
-<% end %>
+<div class="frame small">
+  <h2>Classrooms</h2>
+  <%= search_form_for @q do |f| %>
+    <%= f.label "Search" %>
+    <%= f.text_field :name_cont, placeholder: " enter classroom name" %>
+    <%= f.submit %><br /><br />
+  <% end %>
+</div>
 <% @classrooms.each do |classroom| %>
-  <p><%= link_to classroom.name, classroom %></p>
-  <ul>
-    <li>
-      Equipment: <%= classroom.equipment %>
-    </li>
-    <li>
-      Other aspects: <%= classroom.other_aspects %>
-    </li>
-    <li>
-      <%= button_to "Edit", edit_classroom_path(classroom), method: :get %>
-      <%= button_to "Delete", delete_classroom_path(classroom) %>
-    </li>
-  </ul>
+  <div class="frame small classroom">
+    <h4>
+      <%= link_to classroom.name, classroom %>
+    </h4>
+    <ul>
+      <li>
+        Equipment: <%= classroom.equipment %>
+      </li>
+      <li>
+        Other aspects: <%= classroom.other_aspects %>
+      </li>
+      <li>
+        <%= button_to "Edit", edit_classroom_path(classroom), method: :get %>
+        <%= button_to "Delete", delete_classroom_path(classroom) %>
+      </li>
+    </ul>
+  </div>
 <% end %>
 <br />
-<%= button_to "New Classroom", new_classroom_path, method: :get %>
+<div class="frame list-button">
+  <%= button_to "New Classroom", new_classroom_path, method: :get %>
+</div>
