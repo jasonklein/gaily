@@ -10,10 +10,10 @@
       <%= render 'booking' %>
     <% end %>
     <li>
-      Start Time: <%= @course.start_time %>
+      Start Time: <%= @course.start_time %> h
     </li>
     <li>
-      End Time: <%= @course.end_time %>
+      End Time: <%= @course.end_time %> h
     </li>
     <% if can? :manage, Course %>
       <br />

@@ -27,6 +27,9 @@ class CoursesController < ApplicationController
       overlap_error << "."
       flash.now[:notice] = overlap_error
       render action: "new"
+    elsif course_start_time_before_end_time?
+      flash.now[:notice] = "Invalid start and end times."
+      render action: "new"
     else
       if @course.save
         redirect_to @course, notice: "#{@course.name} has been added."
@@ -40,7 +43,6 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course.build_booking
   end
 
   def update
@@ -57,9 +59,12 @@ class CoursesController < ApplicationController
       overlap_error << "."
       flash.now[:notice] = overlap_error
       render action: "edit"
+    elsif course_start_time_before_end_time?
+      flash.now[:notice] = "Invalid start and end times."
+      render action: "edit"
     else
       if @course.update_attributes(params[:course])
-        redirect_to @course, notice: "#{@course.name} has been added."
+        redirect_to @course, notice: "#{@course.name} has been updated."
       else
         render action: "edit"
       end
@@ -72,7 +77,7 @@ class CoursesController < ApplicationController
   end
 
   def overlapped_bookings?(new_start_date, new_end_date)
-    @overlapped_bookings = Booking.where("classroom_id = #{params[:course][:booking_attributes][:classroom_id]} and (start_date between '#{new_start_date}' and '#{new_end_date}' or end_date between '#{new_start_date}' and '#{new_end_date}')")
+    @overlapped_bookings = Booking.where("classroom_id = #{params[:course][:booking_attributes][:classroom_id]} AND course_id != #{@course.id} AND (start_date between '#{new_start_date}' AND '#{new_end_date}' OR end_date between '#{new_start_date}' AND '#{new_end_date}')")
 
     if @overlapped_bookings && @overlapped_bookings.any?
       true
@@ -105,6 +110,15 @@ class CoursesController < ApplicationController
       end
       invalid_date_error << "."
       @invalid_date_error = invalid_date_error
+    end
+  end
+
+  def course_start_time_before_end_time?
+    
+    if params[:course][:end_time].to_i <= params[:course][:start_time].to_i
+      true
+    else
+      false
     end
   end
 

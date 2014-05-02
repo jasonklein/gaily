@@ -14,14 +14,14 @@ Enrollment.delete_all
 Assignment.delete_all
 
 courses = Course.create([
-  {name: "Front End Development Immersive 1", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
-  {name: "Front End Development Immersive 2", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
-  {name: "Front End Development Immersive 3", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
-  {name: "Front End Development Immersive 4", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9AM", end_time: "5PM" },
-  {name: "Web Development Immersive 1", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
-  {name: "Web Development Immersive 2", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
-  {name: "Web Development Immersive 3", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9AM", end_time: "5PM" },
-  {name: "User Experience Design Immersive 1", description: "The User Experience Design Immersive aims to get students to think like designers, and equip them with the skills and tools necessary to implement their visions.", start_time: "9AM", end_time: "5PM" },
+  {name: "Front End Development Immersive 1", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9", end_time: "17" },
+  {name: "Front End Development Immersive 2", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9", end_time: "17" },
+  {name: "Front End Development Immersive 3", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9", end_time: "17" },
+  {name: "Front End Development Immersive 4", description: "Design and code beautiful, interactive client-facing websites. Program websites in HTML, CSS and JavaScript. Master the technical vocabulary to communicate your ideas to your teammates and other stakeholders.", start_time: "9", end_time: "17" },
+  {name: "Web Development Immersive 1", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9", end_time: "17" },
+  {name: "Web Development Immersive 2", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9", end_time: "17" },
+  {name: "Web Development Immersive 3", description: "Build a work-ready skill set and fluency in full stack web development. Develop a portfolio of projects individually and in small teams that are ready to present to employers. Prepare for an internship or entry-level job as a jr. web developer.", start_time: "9", end_time: "17" },
+  {name: "User Experience Design Immersive 1", description: "The User Experience Design Immersive aims to get students to think like designers, and equip them with the skills and tools necessary to implement their visions.", start_time: "9", end_time: "17" },
   ])
 
 users = User.create([
@@ -37,12 +37,9 @@ users = User.create([
   ])
 
 classrooms = Classroom.create([
-  {name: "Room 1 (Day)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
-  {name: "Room 1 (Night)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
-  {name: "Room 2 (Day)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
-  {name: "Room 2 (Night)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
-  {name: "Room 3 (Day)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
-  {name: "Room 3 (Night)", equipment: "Beep boop beep", other_aspects: "Blah blah blah"}
+  {name: "Room 1", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
+  {name: "Room 2", equipment: "Beep boop beep", other_aspects: "Blah blah blah"},
+  {name: "Room 3", equipment: "Beep boop beep", other_aspects: "Blah blah blah"}
   ])
 
 bookings = Booking.create([
@@ -50,10 +47,10 @@ bookings = Booking.create([
   {course_id: 2, classroom_id: 1, start_date: "2014-06-05", end_date: "2014-06-28"},
   {course_id: 3, classroom_id: 1, start_date: "2014-07-10", end_date: "2014-07-29"},
   {course_id: 4, classroom_id: 1, start_date: "2014-08-15", end_date: "2014-08-28"},
-  {course_id: 5, classroom_id: 3, start_date: "2014-05-05", end_date: "2014-05-29"},
-  {course_id: 6, classroom_id: 3, start_date: "2014-06-05", end_date: "2014-06-30"},
-  {course_id: 7, classroom_id: 3, start_date: "2014-07-15", end_date: "2014-07-30"},
-  {course_id: 8, classroom_id: 3, start_date: "2014-08-10", end_date: "2014-08-30"}
+  {course_id: 5, classroom_id: 2, start_date: "2014-05-05", end_date: "2014-05-29"},
+  {course_id: 6, classroom_id: 2, start_date: "2014-06-05", end_date: "2014-06-30"},
+  {course_id: 7, classroom_id: 2, start_date: "2014-07-15", end_date: "2014-07-30"},
+  {course_id: 8, classroom_id: 2, start_date: "2014-08-10", end_date: "2014-08-30"}
   ])
 
 enrollments = Enrollment.create([
