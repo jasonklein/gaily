@@ -37,8 +37,8 @@
     <%= button_to "Add Instructor", new_course_assignment_path(@course), method: :get %>
   <% end %>
 </div>
+<% if current_user %>
 <div class="frame right students">
-  <% if current_user %>
     <div class="students">
       <h4>Students | <%= @course.students.count %></h4>
       <% if @course.students.any? %>
@@ -48,5 +48,5 @@
         <%= button_to "Add Student", new_course_enrollment_path(@course), method: :get %>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

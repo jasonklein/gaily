@@ -26,9 +26,11 @@
       <% end %>
     </p>
     <% end %>
-  <br />
-    <li>
-      <%= button_to "New Course", new_course_path, method: :get %>
-    </li>
+    <br />
+    <% if can? :manage, Course %>
+      <li>
+        <%= button_to "New Course", new_course_path, method: :get %>
+      </li>
+    <% end %>
   </ul>
 </div>
