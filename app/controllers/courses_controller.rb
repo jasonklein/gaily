@@ -77,6 +77,9 @@ class CoursesController < ApplicationController
   end
 
   def overlapped_bookings?(new_start_date, new_end_date)
+
+    @course.id ||= 0
+
     @overlapped_bookings = Booking.where("classroom_id = #{params[:course][:booking_attributes][:classroom_id]} AND course_id != #{@course.id} AND (start_date between '#{new_start_date}' AND '#{new_end_date}' OR end_date between '#{new_start_date}' AND '#{new_end_date}')")
 
     if @overlapped_bookings && @overlapped_bookings.any?
